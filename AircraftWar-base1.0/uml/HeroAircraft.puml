@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+title Singleton Pattern
+
+abstract class AbstractAircraft
+{
+    + shoot():List<BaseBullet>
+}
+
+class HeroAircraft
+{
+    - {static} {volatile} instance:HeroAircraft
+    - HeroAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
+    + {static} getInstance(int locationX, int locationY, int speedX, int speedY, int hp):HeroAircraft
+    + forward():void
+    + shoot():List<BaseBullet>
+}
+
+AbstractAircraft <|-- HeroAircraft
+
+note right of HeroAircraft
+  Singleton Pattern
+end note
+
+@enduml
